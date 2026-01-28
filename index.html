@@ -3,13 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbyFQUkEOj37Th1kFdHqtUTdbK0dJHNkepkyyoMnMe02-_PSd586hPT8pOEC-JU9vaGmuQ/exec">
     
     <script type="text/javascript">
-      window.location.href = "https://script.google.com/macros/s/AKfycbyFQUkEOj37Th1kFdHqtUTdbK0dJHNkepkyyoMnMe02-_PSd586hPT8pOEC-JU9vaGmuQ/exec";
+      // --- CONFIGURATION ---
+      // Define your URL here once.
+      var targetUrl = "https://script.google.com/macros/s/AKfycbyFQUkEOj37Th1kFdHqtUTdbK0dJHNkepkyyoMnMe02-_PSd586hPT8pOEC-JU9vaGmuQ/exec";
+      // ---------------------
+
+      // 1. Immediate JavaScript Redirect
+      // .replace() is better than .href because it prevents the user 
+      // from clicking "Back" and getting stuck in a loop.
+      window.location.replace(targetUrl);
     </script>
   </head>
   <body>
-    <p>If you are not redirected automatically, follow this <a href="https://script.google.com/macros/s/AKfycbyFQUkEOj37Th1kFdHqtUTdbK0dJHNkepkyyoMnMe02-_PSd586hPT8pOEC-JU9vaGmuQ/exec">link to the app</a>.</p>
+    <p>If you are not redirected automatically, follow this <a id="fallback-link" href="">link to the app</a>.</p>
+
+    <script type="text/javascript">
+      // 3. Update the HTML link automatically using the variable defined above
+      document.getElementById("fallback-link").href = targetUrl;
+    </script>
   </body>
 </html>
